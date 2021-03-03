@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>Math Arithmetic</title>
+ </head>
+<body>
+<h1>Akhil Kasuvojula computes</h1>
+<form>
+    <label for="First_number">What is your age </label>
+    <input type ="number" id="First_number" name="First_number" value=10> <br>
+
+    <label for="Second_number">Enter number </label>
+    <input type ="text" id="Second_number" name="Second_number" value=2> <br>
+
+    <button type="button" onclick="permutations()" class="btn btn-primary">Compute</button>
+
+</form>
+<div id="result1"></div>
+<form>
+
+    <input type="radio" id="radio_addition" onclick="processRadio()" name="RadioWork" value="plus">
+    <label for="radio_addition">+ </label>
+    <br>
+    <input type="radio" id="radio_subtraction" onclick="processRadio()" name="RadioWork" value="minus">
+    <label for="radio_subtraction">- </label>
+    <br>
+    <input type="radio" id="radio_multiplication" onclick="processRadio()" name="RadioWork" value="times">
+    <label for="radio_multiplication">* </label>
+    <br>
+    <input type="radio" id="radio_divide" onclick="processRadio()" name="RadioWork" value="divide">
+    <label for="radio_divide">/ </label>
+
+
+
+</form>
+
+<div id="result2"></div>
+
+<script>
+
+    function permutations() {
+        var firstinput = document.getElementById("First_number").value;
+        var scndinput = document.getElementById("Second_number").value;
+        var product = 1;
+        for (let i = firstinput; i >= (firstinput - scndinput + 1); i--) {
+            product *= i;
+        }
+        document.getElementById("result1").innerHTML = product;
+
+
+    }
+
+    function processRadio() {
+
+        var firstinput = parseInt(document.getElementById("First_number").value);
+        var scndinput = parseInt(document.getElementById("Second_number").value);
+       
+        process = document.getElementById("result2")
+        if (document.getElementById("radio_addition").checked) {
+
+            process.innerHTML = firstinput + scndinput;
+
+        } else if (document.getElementById("radio_subtraction").checked) {
+
+            process.innerHTML = firstinput - scndinput;
+
+        } else if (document.getElementById("radio_multiplication").checked) {
+
+            process.innerHTML = firstinput * scndinput;
+
+        } else {
+
+            process.innerHTML = firstinput / scndinput;
+            
+        }
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
