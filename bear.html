@@ -3,62 +3,74 @@
 
 <head>
     <title>Bear forms</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        form {
+            margin: 47px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Akhil Kasuvojula builds a bear</h1>
+
     <form>
-        <input type="checkbox" id="hat_box" name="hat_checkbox" value="hat">
+        <input type="checkbox" class="form-check-input" id="hat_box" name="hat_checkbox" value="hat">
         <label for="hat_box">hat</label>
         <br>
 
-        <input type="checkbox" id="scarf_box" name="scarf_checkbox" value="scarf">
+        <input type="checkbox" class="form-check-input" id="scarf_box" name="scarf_checkbox" value="scarf">
         <label for="scarf_box">scarf</label>
         <br>
 
-        <input type="checkbox" id="shirt_box" name="shirt_checkbox" value="shirt">
+        <input type="checkbox" class="form-check-input" id="shirt_box" name="shirt_checkbox" value="shirt">
         <label for="shirt_box">shirt</label>
         <br>
 
-        <input type="button" onclick="startbear()" value="Start a bear">
+        <input type="button" class="btn btn-secondary" onclick="startbear()" value="Start a bear">
     </form>
     <form>
 
         <label for="Propertybox">Enter a property</label>
-        <input type="text" id="Propertybox" name="Property_box" value="color">
+        <input type="text" class="form-control" id="Propertybox" name="Property_box" value="color">
         <br>
         <label for="valuebox">Enter a value </label>
-        <input type="text" id="valuebox" name="value_box">
+        <input type="text" class="form-control" id="valuebox" name="value_box">
         <br>
 
-        <input type="button" onclick="updatebear()" value="Update the bear">
+        <input type="button" class="btn btn-secondary" onclick="updatebear()" value="Update the bear">
     </form>
     <div id="result"></div>
     <script>
-var my_bear={};
-function startbear (){
-    my_bear={};
-    if(document.getElementById("hat_box").checked){
-        my_bear["hat"]=true;
-    }else{
-        my_bear["hat"]=false;
-    }
-     if(document.getElementById("scarf_box").checked){
-        my_bear["scarf"]=true;
-    }else{
-        my_bear["scarf"]=false;
-    }
-    if(document.getElementById("shirt_box").checked){
-        my_bear["shirt"]=true;
-    }else{
-        my_bear["shirt"]=false;
-    }
-    
-    my_bear= JSON.stringify(my_bear);
-    document.getElementById("result").innerHTML=my_bear
-    my_bear= JSON.parse(my_bear)
-}
-function updatebear() {
+        var my_bear = {};
+        function startbear() {
+            my_bear = {};
+            if (document.getElementById("hat_box").checked) {
+                my_bear["hat"] = true;
+            } else {
+                my_bear["hat"] = false;
+            }
+            if (document.getElementById("scarf_box").checked) {
+                my_bear["scarf"] = true;
+            } else {
+                my_bear["scarf"] = false;
+            }
+            if (document.getElementById("shirt_box").checked) {
+                my_bear["shirt"] = true;
+            } else {
+                my_bear["shirt"] = false;
+            }
+
+            my_bear = JSON.stringify(my_bear);
+            document.getElementById("result").innerHTML = my_bear
+            my_bear = JSON.parse(my_bear)
+        }
+        function updatebear() {
             var prop = document.getElementById("Propertybox").value;
             var values = document.getElementById("valuebox").value;
             my_bear[prop] = values;
